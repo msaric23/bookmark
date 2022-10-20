@@ -1,10 +1,10 @@
 # SpringBoot-REST-project
 
-It was created for learning Spring, Hibernate, JWT authentication.
+It was created as job interview project.
 
 ## About
 
-This is a SpringBoot project which lets you register as a new user and then log in with your account and add your own notes. In this project I used postgres database before launching you need to create your database and you can change settings at `application.properties` file.
+This is a SpringBoot project which lets you register as a new user and then log in with your account and add your own bookmarks. In this project I used postgres database before launching you need to create your database and you can change settings at `application.properties` file.
 
 ### User registration, login Requests
 
@@ -58,18 +58,19 @@ Also you can logout and delete your refresh token so that after valid JWT token 
     "username":"test"
 }
 ```
-### Notes Requests
+### Bookmarks Requests
 
 To add bookmark as a logged in user:
 
 `POST @ localhost:8080/api/bookmark/add` with body:
 ```
 {
-    "title":"note2",
-    "description":"note2"
+    "link": "http://cccccc.com",
+    "name": "cccccc",
+    "shared": true
 }
 ```
-To get all added notes:
+To get all added bookmarks:
 
 `GET @ localhost:8080/api/bookmark`
 
@@ -77,6 +78,6 @@ To delete bookmark:
 
 `DELETE @ localhost:8080/api/bookmark/delete/{id}`
 
-You can only see notes that you added for your logged in user. If you login with other account you wont be able to see them or delete them if you didn't add them. If something wont work there will be error message with some details about error.
+You can see bookmarks that you added for your logged in user. If you login with other account you will be able to see only public bookmarks. You can only delete or update your own bookmarks. If something wont work there will be error message with some details about error.
 
 
